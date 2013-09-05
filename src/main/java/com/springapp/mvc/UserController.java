@@ -39,17 +39,13 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user, BindingResult result) {
-
         userRepository.save(user);
-
         return "redirect:/";
     }
 
     @RequestMapping("/delete/{userId}")
     public String deleteUser(@PathVariable("userId") Long userId) {
-
         userRepository.delete(userRepository.findOne(userId));
-
         return "redirect:/";
     }
 }
